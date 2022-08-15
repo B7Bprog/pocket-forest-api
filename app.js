@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { PORT = 9090 } = process.env;
+
 const monggose = require("mongoose");
 const Tree = require("./models/tree");
 const {
@@ -22,10 +22,6 @@ monggose
   .connect(dbURI)
   .then((response) => {
     console.log("Connected to the database");
-    app.listen(PORT, (err) => {
-      if (err) throw err;
-      console.log(`Listening on ${PORT}...`);
-    });
   })
   .catch((err) => {
     console.log(err);

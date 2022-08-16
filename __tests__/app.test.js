@@ -3,6 +3,7 @@ const request = require("supertest");
 const app = require("../app");
 
 afterAll(() => {
+  console.log("making a backup");
   mongoose.connection.close();
 });
 

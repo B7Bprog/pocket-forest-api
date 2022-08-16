@@ -47,10 +47,10 @@ const treeSchema = new Schema(
       type: Array,
       required: true,
     },
-    // users_image_url: {
-    //   type: Array,
-    //   required: true,
-    // },
+    users_image_url: {
+      type: Array,
+      required: true,
+    },
   },
   { timestamps: true }
 );

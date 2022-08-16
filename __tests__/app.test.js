@@ -7,7 +7,7 @@ afterAll(() => {
 });
 
 describe("Tree endpoints", () => {
-  test.only("Responds with all the trees", () => {
+  test("Responds with all the trees", () => {
     return request(app)
       .get("/api/all-trees")
       .expect(200)
@@ -90,7 +90,64 @@ describe("Tree endpoints", () => {
         expect(body).toHaveProperty("propagation_method");
       });
   });
+
+  test.only("Adds a user to user array of a specific tree", () => {
+    const tree_id = "62f63c4eb9af5ccf4ef7865a";
+
+    const username = "FLopsy";
+
+    // request(app)
+    //   .get(`/api/trees/${tree_id}`)
+    //   .expect(200)
+    //   .then(({ body }) => {
+    //     console.log(body, "in add image URL");
+    //     const updatedImgUrl = [...body.users_image_url, new_tree];
+    //     console.log(updatedImgUrl, "updated ImgUrl Array");
+    //     return updatedImgUrl;
+    //   });
+
+    return request(app)
+      .patch(`/api/trees/${tree_id}/add-user`)
+      .send({ username: username })
+      .expect(200)
+      .then(({ body }) => {
+        console.log(body, "in the response body for add uer to tree");
+      });
+  });
+
+  test.only("Adds a user image URL", () => {
+    const tree_id = "62f63c4eb9af5ccf4ef7865a";
+
+    const new_tree = {
+      imageURL:
+        "https://res.cloudinary.com/pocketforest/image/upload/v1660637408/i4xsdfdgojdhfs1wt6ms.jpg",
+      username: "FLopsy",
+    };
+
+    // request(app)
+    //   .get(`/api/trees/${tree_id}`)
+    //   .expect(200)
+    //   .then(({ body }) => {
+    //     console.log(body, "in add image URL");
+    //     const updatedImgUrl = [...body.users_image_url, new_tree];
+    //     console.log(updatedImgUrl, "updated ImgUrl Array");
+    //     return updatedImgUrl;
+    //   });
+
+    const imageURL =
+      "https://res.cloudinary.com/pocketforest/image/upload/v1660637408/i4xsdfdgojdhfs1wt6ms.jpg";
+    const username = "FLopsy";
+
+    return request(app)
+      .patch(`/api/trees/${tree_id}/add-user-image`)
+      .send({ users_image_url: { [username]: imageURL } })
+      .expect(200)
+      .then(({ body }) => {
+        console.log(body, "in the response body");
+      });
+  });
 });
+
 describe("User endpoints", () => {
   test("Adds a new user", () => {
     const new_user = {

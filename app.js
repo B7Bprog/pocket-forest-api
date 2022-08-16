@@ -16,7 +16,7 @@ const {
 const app = express();
 
 const dbURI =
-  "mongodb+srv://ProjectTeam:pocketforest321@project.6lqupvd.mongodb.net/pocket-forest?retryWrites=true&w=majority";
+  "mongodb+srv://pocketForest:pocketForest@cluster0.2wa0tzf.mongodb.net/pocket-forest?retryWrites=true&w=majority";
 
 monggose
   .connect(dbURI)

@@ -32,7 +32,7 @@ const treeSchema = new Schema(
       required: true,
     },
     username: {
-      type: String,
+      type: Array,
       required: true,
     },
     point_value: {
@@ -44,6 +44,10 @@ const treeSchema = new Schema(
       required: true,
     },
     propagation_method: {
+      type: Array,
+      required: true,
+    },
+    users_image_url: {
       type: Array,
       required: true,
     },

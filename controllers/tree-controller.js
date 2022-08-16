@@ -11,6 +11,8 @@ exports.getAllTrees = (req, res, next) => {
 };
 
 exports.getTreeByID = (req, res, next) => {
+  console.log("inside controller");
+
   const { tree_id } = req.params;
 
   Tree.findById(tree_id).then((result) => {
@@ -46,5 +48,25 @@ exports.updateUser = async (req, res, next) => {
   const { username } = req.params;
   const query = { username: username };
   const result = await User.findOneAndUpdate(query, req.body, opts);
+  res.status(200).send(result);
+};
+
+exports.addUserImage = async (req, res, next) => {
+  const opts = { new: true, upsert: true };
+  const { tree_id } = req.params;
+  const query = { _id: tree_id };
+  // const userImage = { username: imageURL };
+  const result = await Tree.findOneAndUpdate(query, req.body, opts);
+  console.log(result);
+  res.status(200).send(result);
+};
+
+exports.addUserToTree = async (req, res, next) => {
+  const opts = { new: true, upsert: true };
+  const { tree_id } = req.params;
+  const query = { _id: tree_id };
+  // const userImage = { username: imageURL };
+  const result = await Tree.findOneAndUpdate(query, req.body, opts);
+  console.log(result);
   res.status(200).send(result);
 };

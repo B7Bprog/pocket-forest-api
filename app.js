@@ -10,10 +10,10 @@ const {
   addUser,
   getAllUsers,
   updateUser,
+  addUserImage,
+  addUserToTree,
 } = require("./controllers/tree-controller");
 const app = express();
-
-//connect to mongodb
 
 const dbURI =
   "mongodb+srv://ProjectTeam:pocketforest321@project.6lqupvd.mongodb.net/pocket-forest?retryWrites=true&w=majority";
@@ -42,5 +42,7 @@ app.post("/api/add-tree", addTree);
 app.post("/api/add-user", addUser);
 app.get("/api/all-users", getAllUsers);
 app.patch("/api/users/:username", updateUser);
+app.patch("/api/trees/:tree_id/add-user-image", addUserImage);
+app.patch("/api/trees/:tree_id/add-user", addUserToTree);
 
 module.exports = app;

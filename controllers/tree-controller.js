@@ -3,8 +3,10 @@ const Tree = require("../models/tree");
 const User = require("../models/user");
 
 exports.getAllTrees = (req, res, next) => {
+  console.log(tree, "treee");
   Tree.find()
     .then((result) => {
+      console.log("inside controller");
       res.send(result);
     })
     .catch((err) => {});
@@ -48,3 +50,9 @@ exports.updateUser = async (req, res, next) => {
   const result = await User.findOneAndUpdate(query, req.body, opts);
   res.status(200).send(result);
 };
+
+// exports.addUserImage= async (req, res, next) => {
+//   const {imageURL} = req.params;
+//   const {username} = req.params;
+
+// }

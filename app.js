@@ -10,6 +10,7 @@ const {
   addUser,
   getAllUsers,
   updateUser,
+  addUserImage,
 } = require("./controllers/tree-controller");
 const app = express();
 
@@ -42,5 +43,6 @@ app.post("/api/add-tree", addTree);
 app.post("/api/add-user", addUser);
 app.get("/api/all-users", getAllUsers);
 app.patch("/api/users/:username", updateUser);
+// app.post("/api/add-users-image-url", addUserImage);
 
 module.exports = app;

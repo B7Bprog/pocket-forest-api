@@ -7,7 +7,7 @@ afterAll(() => {
 });
 
 describe("Tree endpoints", () => {
-  test("Responds with all the trees", () => {
+  test.only("Responds with all the trees", () => {
     return request(app)
       .get("/api/all-trees")
       .expect(200)

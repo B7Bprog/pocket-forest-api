@@ -149,10 +149,10 @@ describe("Tree endpoints", () => {
 });
 
 describe("User endpoints", () => {
-  test("Adds a new user", () => {
+  test.only("Adds a new user", () => {
     const new_user = {
       name: "Peter",
-      username: "john11",
+      username: "john12",
       points: 15,
       favorite_tree: `Maple`,
       num_of_trees_collected: 5,

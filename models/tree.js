@@ -34,6 +34,7 @@ const treeSchema = new Schema(
     username: {
       type: Array,
       required: true,
+      unique: false,
     },
     point_value: {
       type: Number,
